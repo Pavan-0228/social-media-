@@ -60,6 +60,8 @@ const CreatePost = () => {
 
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user.username);
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 
     // Handle form submission
     const handleSubmit = async (e) => {
@@ -82,7 +84,7 @@ const CreatePost = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/v1/posts/posts",
+                `${backendUrl}/api/v1/posts/posts`,
                 formData,
                 {
                     headers: {

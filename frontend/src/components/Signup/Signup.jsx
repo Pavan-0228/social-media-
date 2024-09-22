@@ -23,11 +23,14 @@ const Signup = () => {
         });
     };
 
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const url = "http://localhost:3000/api/v1/auth/signup";
+            const url = `${backendUrl}/api/v1/auth/signup`;
             const response = await axios.post(url, formData);
             
             // Display success message

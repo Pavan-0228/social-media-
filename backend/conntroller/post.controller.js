@@ -55,7 +55,7 @@ export const getUserPosts = async (req, res) => {
     try {
         const { username } = req.params; 
 
-        const userPosts = await Post.find({ username });
+        const userPosts = await Post.find({ username }).sort({ createdAt: -1 });
 
         if (userPosts.length === 0) {
             return res

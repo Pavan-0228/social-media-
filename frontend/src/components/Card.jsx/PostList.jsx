@@ -7,11 +7,13 @@ const PostsList = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
     useEffect(() => {
         const fetchPosts = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:3000/api/v1/posts/posts"
+                    `${backendUrl}/api/v1/posts/posts`
                 );
                 setPosts(response.data);
             } catch (err) {

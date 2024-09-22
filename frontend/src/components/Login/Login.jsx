@@ -11,9 +11,11 @@ function Login() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 
     const login = async () => {
-        const url = "http://localhost:3000/api/v1/auth/login";
+        const url = `${backendUrl}/api/v1/auth/login`;
         const data =
             email !== "" ? { email, password } : { username, password };
 
@@ -43,7 +45,7 @@ function Login() {
         }
             catch (err) {
                 // Display error toast for server errors
-                toast.error(err.response.data.message ||"Server error occurred. Please try again later.");
+                toast.error(err?.response?.data?.message ||"Server error occurred. Please try again later.");
         }
     };
 

@@ -66,7 +66,7 @@ const PostCard = ({ post }) => {
                     <img
                         src={`https://ui-avatars.com/api/?name=${post.name}`}
                         alt={post.name}
-                        className="w-10 h-10 rounded-full"
+                        className="w-10 h-10 rounded-full object-cover object-top"
                     />
                     <div>
                         <p className="font-semibold">{post.name}</p>

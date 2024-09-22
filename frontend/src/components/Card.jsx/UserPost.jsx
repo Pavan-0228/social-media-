@@ -9,12 +9,14 @@ const UserPost = () => {
 
     const user = JSON.parse(localStorage.getItem("user"));
 
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
     useEffect(() => {
         const fetchPosts = async () => {
             try {
                 console.log(user.username);
                 const response = await axios.get(
-                    `http://localhost:3000/api/v1/posts/posts/user/${user.username}`
+                    `${backendUrl}/api/v1/posts/posts/user/${user.username}`
                 );
                 setPosts(response.data);
             } catch (err) {
